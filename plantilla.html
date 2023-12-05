@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+		/*Jorge Tomás Araujo González*/
+		body{
+			background-color: lightslategray;
+			background-size: cover;
+    		background-repeat: no-repeat;
+		}
+		#titulo{
+			text-align: center;
+			color: white;
+		}
+		#div1{
+			background-color: beige;
+		}
+
+		.content {
+            padding:  5px;
+			background-color: aliceblue;
+			border-radius: 10px;
+        }
+		.subcontent1{
+			background-color: black;
+			height: 500px;
+		}
+		.row{
+			display: flex;
+			justify-content: space-between;
+			font-size: large;
+			width: auto;
+			height: auto;
+		}
+		#dashcol{
+			flex: 1;
+			padding: 20px;
+			margin: 5px;
+			text-align: center;
+			width: auto;
+			height: auto;
+            background-color: rgb(4, 140, 194);
+
+		}
+		.columna{
+			flex: 1;
+			margin: 10px;
+			width: auto;
+			height: auto;
+			text-align: center;
+			font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+			font-size: 45px;
+		}
+		.navbar{
+			background-color: black;
+			text-align: center;
+			border-radius: 10px;
+		}
+		#nav{
+			margin-top: 25px;
+			text-align: center;
+		}
+		.navtext{
+			color: white;
+			align-self: center;
+			font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+			margin-left: 15px;
+		}
+		.pic{
+			width: 400px;
+			height: 250px;
+			border-radius: 6px;
+		}
+		.xpanded{
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 90% !important;
+        height: 90% !important;
+        z-index: 1000; /*para asegurarse que está encima de otros elementos*/
+        border: 3px solid white;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /*efecto de sombra*/
+		border-radius: 20px;
+    }
+	.titulo{
+		margin-left: 160px;
+		color: white;
+		font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+		font-size: 55px;
+	}
+	.lupa{
+		width: 30px;
+		height: 30px;
+	}
+	.graf{
+		background-color: white;
+		border-radius: 5px;
+	}
+    </style>
+</head>
+
+<body>
+    <div class="container">
+		<div class="navbar">
+			<div class="row">
+				<div id="nav"><a class="navtext" href="/#">Link 1</a></div>
+				<div id="nav"><a class="navtext" href="/#">Link 2</a></div>
+				<h1 class="titulo">Titulo</h1>
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
+		</div>
+		<div class="wrapper">	
+			<br>
+			<div class="content">
+				<div class="row">
+					<div class="columna">
+						<h3>Plan</h3>
+					</div>
+					<div class="columna">
+						<h3>Do</h3>
+					</div>
+					<div class="columna">
+						<h3>Check</h3>
+					</div>
+                    <div class="columna">
+						<h3>Act</h3>
+					</div>
+				</div>
+
+                <div class="row" id="titlediv">
+					<div class="column" id="dashcol">
+						<img class="pic" src="ct/1.jpg" id="1">
+						<br><br>
+						<form action="/ct" method="post" enctype="multipart/form-data">
+							<input type="file" name="1" required>
+							<button type="submit">Upload</button>
+						</form>
+					</div>
+
+					<div class="column" id="dashcol">
+						<img class="pic" src="ct/2.jpg" id="2">
+						<br><br>
+						<form action="/ct" method="post" enctype="multipart/form-data">
+							<input type="file" name="2" required>
+							<button type="submit">Upload</button>
+						</form>
+					</div>
+
+					<div class="column" id="dashcol">
+						<div class="graf">
+							<canvas id="tabla5"></canvas>
+							</div>
+							<br>
+							<a href="/tabla5">
+								<img src="lupa.png" class="lupa">
+							</a>
+					</div>
+
+                    <div class="column" id="dashcol">
+						<img class="pic" src="ct/3.jpg" id="3">
+						<br><br>
+						<form action="/ct" method="post" enctype="multipart/form-data">
+							<input type="file" name="3" required>
+							<button type="submit">Upload</button>
+						</form>
+					</div>
+				</div>
+				<div class="row">
+					<div class="column" id="dashcol">
+						<img class="pic" src="ct/4.jpg" id="4">
+						<br><br>
+						<form action="/ct" method="post" enctype="multipart/form-data">
+							<input type="file" name="4" required>
+							<button type="submit">Upload</button>
+						</form>
+					</div>
+
+					<div class="column" id="dashcol">
+						<img class="pic" src="ct/5.jpg" id="5">
+						<br><br>
+						<form action="/ct" method="post" enctype="multipart/form-data">
+							<input type="file" name="5" required>
+							<button type="submit">Upload</button>
+						</form>
+					</div>
+
+					<div class="column" id="dashcol">
+						<div class="graf">
+							<canvas id="tabla6"></canvas>
+							</div>
+							<br>
+							<a href="/tabla6">
+								<img src="lupa.png" class="lupa">
+							</a>
+					</div>
+
+                    <div class="column" id="dashcol">
+						<img class="pic" src="ct/6.jpg" id="6">
+						<br><br>
+						<form action="/ct" method="post" enctype="multipart/form-data">
+							<input type="file" name="6" required>
+							<button type="submit">Upload</button>
+						</form>
+					</div>
+				</div>
+				<div class="row">
+					<div class="column" id="dashcol">
+						<img class="pic" src="ct/7.jpg" id="7">
+						<br><br>
+						<form action="/ct" method="post" enctype="multipart/form-data">
+							<input type="file" name="7" required>
+							<button type="submit">Upload</button>
+						</form>
+					</div>
+
+					<div class="column" id="dashcol">
+						<img class="pic" src="ct/8.jpg" id="8">
+						<br><br>
+						<form action="/ct" method="post" enctype="multipart/form-data">
+							<input type="file" name="8" required>
+							<button type="submit">Upload</button>
+						</form>
+					</div>
+
+					<div class="column" id="dashcol">
+						<div class="graf">
+							<canvas id="tabla7"></canvas>
+							</div>
+							<br>
+							<a href="/tabla7">
+								<img src="lupa.png" class="lupa">
+							</a>
+					</div>
+
+                    <div class="column" id="dashcol">
+						<img class="pic" src="ct/9.jpg" id="9">
+						<br><br>
+						<form action="/ct" method="post" enctype="multipart/form-data">
+							<input type="file" name="9" required>
+							<button type="submit">Upload</button>
+						</form>
+					</div>
+				</div>
+				<div class="row">
+					<div class="column" id="dashcol">
+						<img class="pic" src="ct/10.jpg" id="10">
+						<br><br>
+						<form action="/ct" method="post" enctype="multipart/form-data">
+							<input type="file" name="10" required>
+							<button type="submit">Upload</button>
+						</form>
+					</div>
+
+					<div class="column" id="dashcol">
+						<img class="pic" src="ct/11.jpg" id="11">
+						<br><br>
+						<form action="/ct" method="post" enctype="multipart/form-data">
+							<input type="file" name="11" required>
+							<button type="submit">Upload</button>
+						</form>
+					</div>
+
+					<div class="column" id="dashcol">
+						<div class="graf">
+							<canvas id="tabla8"></canvas>
+							</div>
+							<br>
+							<a href="/tabla8">
+								<img src="lupa.png" class="lupa">
+							</a>
+					</div>
+
+                    <div class="column" id="dashcol">
+						<img class="pic" src="ct/12.jpg" id="12">
+						<br><br>
+						<form action="/ct" method="post" enctype="multipart/form-data">
+							<input type="file" name="12" required>
+							<button type="submit">Upload</button>
+						</form>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+
+	<script>
+	for (let i = 1; i <= 12; i++) {
+		document.getElementById(i.toString()).addEventListener('click', function () {
+			this.classList.toggle('xpanded');
+		});
+	}
+	</script>
+
+</body>
+</html>
